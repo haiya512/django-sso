@@ -1,5 +1,6 @@
 USERS_APP = ('sessions', 'auth', 'admin')
 
+
 class UserRouter(object):
 
     def db_for_read(self, model, **hints):

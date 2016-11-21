@@ -3,6 +3,5 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-) + patterns('consumer.views',
-    url(r'^$', 'index'),
+    url(r'^$', 'consumer.views.index'),
 )

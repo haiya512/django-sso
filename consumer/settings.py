@@ -90,5 +90,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+# this is very import
 SSO_AUTH_URL = 'http://127.0.0.1:9000/'
