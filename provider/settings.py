@@ -58,8 +58,15 @@ WSGI_APPLICATION = 'provider.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'users.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'users.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_sso_server',
+        'USER': 'root',
+        'PASSWORD': 'centos',
+        'PORT': 3306,
+        'HOST': '127.0.0.1',
+        'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
     }
 }
 
@@ -81,3 +88,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+TEMPLATE_DIRS = (
+    BASE_DIR + '/templates',
+)

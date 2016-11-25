@@ -15,9 +15,11 @@ def index(request):
     # _auth_user_id : 1
     # _auth_user_backend : django.contrib.auth.backends.ModelBackend
     if request.user.is_authenticated():
+        print "is auth"
         return HttpResponse('Hello, ' + request.user.username)
     # if user is already logined, then there is code in browser
     elif 'code' in request.GET:
+        print "code in get"
         # 这种情况一般会用在用户收藏URL的时候，把key也给带上了，如果没有失效则不用输密码
         # 就可以登录，如果失效了那么就重新登录
         # request.GET 是个class,里面包含有cookie相关的字典
@@ -27,6 +29,7 @@ def index(request):
         request.session.modified = True
         return redirect(index)
     else:
+        print "not auth"
         return redirect_to_login(
             request.build_absolute_uri(),
             settings.SSO_AUTH_URL, 'callback')

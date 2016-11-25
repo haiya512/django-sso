@@ -64,8 +64,15 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'consumer.sqlite3'),
     },
     'users': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'users.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'users.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_sso_server',
+        'USER': 'root',
+        'PASSWORD': 'centos',
+        'PORT': 3306,
+        'HOST': '127.0.0.1',
+        'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
     }
 }
 
@@ -91,4 +98,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # this is very import
-SSO_AUTH_URL = 'http://127.0.0.1:9000/'
+SSO_AUTH_URL = 'http://192.168.0.74:9000/'
